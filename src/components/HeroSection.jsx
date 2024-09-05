@@ -1,38 +1,35 @@
 import React from "react";
 import img1 from "../assets/imgs/HeroSection.png";
-import { DownArrowKey } from "../utils/utils";
+import { FaChevronDown } from "react-icons/fa"; // Importing an arrow icon
 
 const HeroSection = () => {
   return (
-    <div className="relative h-screen overflow-auto">
+    <section className="h-screen text-white flex flex-col justify-center relative">
+      {/* Background Image */}
       <img
-        src={
-          "https://sidlabs-demo.vercel.app/assets/HeroSection-Image_Mobile-d0366779.png"
-        }
-        alt="Hero Section"
-        className="w-full h-full object-x-cover absolute top-0 left-0 -z-10 block sm:hidden"
+        className="absolute top-0 left-0 h-screen w-[100%] object-cover -z-20"
+        src={img1}
+        alt="Hero background"
       />
-      <img
-        src={img1} // You can replace this with a different image for mobile if needed
-        alt="Hero Section Mobile"
-        className="w-full h-full object-x-cover absolute top-0 left-0 -z-10 hidden sm:block"
-      />
-      <div className="relative flex flex-col h-full overflow-auto px-10">
-        <span className="flex flex-col h-full text-sky-700 pr-4 lg:pr-10 lg:mr-10 justify-center text-end lg:text-end relative">
-          <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold font-sans">
-            A VENTURE STUDIO
-          </h1>
-          <h3 className="text-end text-lg sm:text-2xl lg:text-4xl font-normal font-sans mt-4 pt-4 w-full  mx-auto ">
-            Advancing Human Intelligence <br />
-            Through Innovation
-          </h3>
-        </span>
-        <span className="flex flex-col text-sky-700 relative py-4 font-normal text-sm sm:text-lg lg:text-xl text-center lg:text-end mx-auto lg:ml-[45%]">
-          Explore More
-          <DownArrowKey />
-        </span>
+
+      {/* Overlay */}
+      <div className="absolute h-screen w-screen -z-10 bg-gradient-to-b from-transparent to-gray-900 opacity-90" />
+
+      {/* Text and Button */}
+      <div className="container mx-auto text-center">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6">
+          Cutting-Edge Venture Studio
+        </h1>
+        <p className="text-lg md:text-xl lg:text-2xl mb-10">
+          Advancing Human Intelligence through Pioneering AI Innovations
+        </p>
       </div>
-    </div>
+
+      {/* Bouncing Arrow */}
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+        <FaChevronDown className="text-white text-3xl animate-bounceHigh" />
+      </div>
+    </section>
   );
 };
 

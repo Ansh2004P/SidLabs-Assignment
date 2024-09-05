@@ -37,8 +37,8 @@ const ExploreSection = () => {
             imgAlt="Flagship Card Decoration"
           />
         </div>
-        <div className="hidden lg:block mx-[10%] absolute inset-x-0 top-[255%] border-t-2 border-[#0076B4] -z-20"></div>
-        <div className="border border-sky-700 block md:block lg:hidden absolute h-[30%] w-[1px] top-[155%] -z-10"></div>
+        <div className="hidden lg:block mx-[10%] lg:mt-12 mt-40 absolute inset-x-0 top-[255%] border-t-2 border-[#0076B4] -z-20"></div>
+        <div className="border border-sky-700 block absolute -mt-96 md:-mt-80 sm:h-[400px] md:h-[350px] lg:hidden h-[480px] w-[1px] top-[240%] -z-20"></div>
 
         <div className="h-24"></div>
       </div>

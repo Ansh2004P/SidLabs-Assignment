@@ -8,21 +8,39 @@ import ContactUs from "./components/ContactUs";
 import Footer from "./components/Footer";
 import InsightSection from "./components/InsightSection";
 import TestimonialSection from "./components/TestimonialSection";
+import { useEffect, useRef, useState } from "react";
+import CustomCursor from "./components/CustomCursor";
 
 function App() {
+  const [scrollPosition, setScrollPosition] = useState({ y: 0 });
+  const scrollbarsRef = useRef(null);
+
+  const handleScroll = () => {
+    const scrollbars = scrollbarsRef.current;
+    setScrollPosition({
+      y: scrollbars.getScrollTop(), // Update scroll position
+    });
+  };
+
   return (
     <>
       <div className="w-screen h-screen fixed">
-        <Scrollbars autoHide className="flex-grow">
-          <Header />
+        <Scrollbars
+          autoHide
+          className="flex-grow"
+          onScroll={handleScroll}
+          ref={scrollbarsRef}
+        >
+          <Header isHeroInView={scrollPosition.y > window.innerHeight * 0.85} />
           <HeroSection />
-          <MissionSection />
+          <MissionSection scrollPosition={scrollPosition} />
           <ExploreSection />
           <MotoSection />
           <InsightSection />
           <TestimonialSection />
           <ContactUs />
           <Footer />
+          <CustomCursor />
         </Scrollbars>
       </div>
     </>

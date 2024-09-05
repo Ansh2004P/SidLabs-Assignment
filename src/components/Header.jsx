@@ -1,19 +1,35 @@
 import React from "react";
-
-import CustomButtons from "./CustomButtons";
+import propTypes from "prop-types";
 import HeaderLogo from "./HeaderLogo";
 
-const Header = () => {
+const Header = ({ isHeroInView }) => {
   return (
-    <div className="h-fit w-full py-3 flex justify-between px-4  relative">
+    <div className="fixed z-50 h-fit w-full py-3 flex justify-between ">
+      <div
+        className={`absolute h-full w-full z-40 -mt-3 ${
+          !isHeroInView ? "bg-transparent" : "bg-white shadow-lg"
+        }`}
+      />
+
       <HeaderLogo />
-      <div className="w-full sm:w-[65%] md:w-[60%] lg:w-[30%] flex justify-around ml-6 pr-4 mr-2">
-        <CustomButtons content="About us" />
-        <CustomButtons  content="Flagship Projects" />
-        <CustomButtons content="Contact Now" />
+
+      <div className="px-4 relative z-50 w-full sm:w-auto flex justify-end items-center space-x-3 sm:space-x-4 ">
+        <li className="cursor-pointer list-none text-sky-700 px-2 sm:text-sm md:text-md lg:text-lg text-xs rounded-md  transition-all duration-300  hover:text-sky-400 text-md">
+          About us
+        </li>
+        <li className="cursor-pointer list-none text-sky-700 px-2 sm:text-sm md:text-md lg:text-lg text-xs rounded-md  transition-all duration-300  hover:text-sky-400 text-md">
+          Flagship Projects
+        </li>
+        <li className="cursor-pointer list-none text-sky-700 px-2 sm:text-sm md:text-md lg:text-lg text-xs rounded-md  transition-all duration-300  hover:text-sky-400 text-md">
+          Contact Now
+        </li>
       </div>
     </div>
   );
 };
 
 export default Header;
+
+Header.propTypes = {
+  isHeroInView: propTypes.bool,
+};
