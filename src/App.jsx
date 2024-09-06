@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-      <div className="w-screen h-screen fixed">
+      <div className="w-screen h-screen fixed bg-neutral-900 overflow-x-clip">
         <Scrollbars
           autoHide
           className="flex-grow"
@@ -33,14 +33,14 @@ function App() {
         >
           <Header isHeroInView={scrollPosition.y > window.innerHeight * 0.85} />
           <HeroSection />
-          <MissionSection scrollPosition={scrollPosition} />
+          <MissionSection />
           <ExploreSection />
-          <MotoSection />
+          {/* <MotoSection />   */}
           <InsightSection />
           <TestimonialSection />
           <ContactUs />
           <Footer />
-          <CustomCursor />
+          {/* <CustomCursor /> */}
         </Scrollbars>
       </div>
     </>

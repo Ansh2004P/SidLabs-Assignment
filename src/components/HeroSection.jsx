@@ -13,7 +13,7 @@ const HeroSection = () => {
       />
 
       {/* Overlay */}
-      <div className="absolute h-screen w-screen -z-10 bg-gradient-to-b from-transparent to-gray-900 opacity-90" />
+      <div className="absolute h-screen w-screen -z-10 bg-gradient-to-b from-transparent to-gray-900 opacity-95" />
 
       {/* Text and Button */}
       <div className="container mx-auto text-center">

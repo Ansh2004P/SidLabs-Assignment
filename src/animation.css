@@ -1,0 +1,23 @@
+/* Keyframes for scrolling */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-20%);
+  }
+}
+
+.scroll-wrapper {
+  display: flex;
+  width: 100%;
+  /* Ensure it scrolls the width of all cards */
+}
+
+.scroll-wrapper {
+  animation: scroll 5s alternate infinite;
+}
+
+.scroll-container:hover .scroll-wrapper {
+  animation-play-state: paused;
+}

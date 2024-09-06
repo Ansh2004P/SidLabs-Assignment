@@ -1,76 +1,101 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import propTypes from "prop-types";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const MissionSection = ({ scrollPosition }) => {
+const MissionSection = () => {
   const sectionRef = useRef(null);
+  const headerRef = useRef(null);
+  const textRef = useRef(null);
+  const imageRef = useRef(null);
   const animationRef = useRef(null);
 
+  // GSAP Animations
   useEffect(() => {
-    const element = sectionRef.current;
+    gsap.registerPlugin(ScrollTrigger);
+    const sectionElement = sectionRef.current;
+    const headerElement = headerRef.current;
+    const textElement = textRef.current;
+    const imageElement = imageRef.current;
 
-    // Define GSAP animation
+    // Parallax effect for background image
     animationRef.current = gsap.fromTo(
-      element,
-      { opacity: 0, y: 50 }, // Start state
+      sectionElement,
+      { backgroundPosition: "50% 0%" },
       {
-        opacity: 1,
-        y: 0, // End state
-        duration: 1.5,
-        ease: "power2.out",
-        paused: true, // Animation is paused initially
+        backgroundPosition: "50% 50%",
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: sectionElement,
+          scrub: true,
+          start: "top bottom",
+          end: "bottom top",
+        },
       }
     );
+
+    // Text Animations
+    gsap.fromTo(
+      [headerElement, textElement],
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 1, stagger: 0.3, ease: "power3.out" }
+    );
+
+    // Image Animation
+    gsap.fromTo(
+      imageElement,
+      { opacity: 0, scale: 0.8 },
+      { opacity: 1, scale: 1, duration: 1.5, delay: 0.5, ease: "power2.out" }
+    );
   }, []);
-
-  useEffect(() => {
-    const element = sectionRef.current;
-    const rect = element.getBoundingClientRect();
-    const threshold = window.innerHeight * 0.85;
-
-    if (
-      scrollPosition &&
-      scrollPosition.y + window.innerHeight >= rect.top + scrollPosition.y
-    ) {
-      animationRef.current.play(); // Trigger animation when in view
-    }
-  }, [scrollPosition]);
 
   return (
     <div
       ref={sectionRef}
-      className="h-fit pt-8 lg:pt-16 flex justify-center items-center pb-8"
+      className="relative pt-20 pb-20 bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-700 md:h-fit sm:h-fit h-fit lg:h-fit
+      flex justify-center items-center overflow-hidden"
     >
-      <div className="w-[95%] h-fit flex lg:justify-between justify-center">
-        <div className="lg:w-1/2 w-[90%] text-center lg:text-start items-center lg:items-start flex flex-col gap-6 pr-0 lg:pr-20 lg:pt-6">
-          <header className="text-sky-700 font-sans text-[1.375rem] lg:text-[2.4375rem] font-[600]">
-            About Us
+      {/* Background overlay shapes */}
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-gray-900 to-transparent  "></div>
+      <div className="absolute top-0 left-0 w-96 h-96 bg-white opacity-20 rounded-full blur-3xl transform -translate-y-20 -translate-x-20"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-white opacity-10 rounded-full blur-3xl transform translate-y-20 translate-x-20"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-gray-900 to-transparent  "></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-gray-900 to-transparent  "></div>
+
+      <div className="absolute top-[90%] left-0 w-full h-20 bg-gradient-to-b from-transparent to-gray-900"></div>
+      <div className="absolute top-[90%] left-0 w-full h-20 bg-gradient-to-b from-transparent to-gray-900 blur-3xl"></div>
+
+      <div className="relative z-10 flex flex-col items-center lg:items-start lg:flex-row w-[95%] gap-8">
+        {/* Left side - Text */}
+        <div className="lg:w-1/2 text-center lg:text-start flex flex-col gap-6">
+          <header
+            ref={headerRef}
+            className="text-white font-bold text-[2.5rem] lg:text-[5rem] tracking-wide -mt-4"
+          >
+            About us
           </header>
-          <h3 className="Spline text-[0.6875rem] lg:text-[1.8125rem] seperate_color font-[600] uppercase">
-            Elevating humanity through innovation and technology is our mission.
-          </h3>
-          <div className="w-2/3 lg:hidden block" data-aos="zoom-in">
-            <img
-              src="https://sidlabs-demo.vercel.app/assets/Mission-59e18e6f.png"
-              alt="Mission Image"
-            />
-          </div>
-          <p className="plus_Jakarta text-[0.5rem] lg:text-[1.5rem] font-[400]">
-            Our vision is to reduce the gap in harnessing technology, towards
-            human evolution! We believe that every technological solution should
-            be purposeful and aligned with the unique needs of the user.
-            One-size-fits-all approaches are outdated; instead, we advocate for
-            solutions that are tailored, intuitive, and genuinely enhance the
-            human experience.
+          <p
+            ref={textRef}
+            className="text-white text-[1.5rem] lg:text-[1.5rem] leading-relaxed font-light max-w-[90%] lg:max-w-full "
+          >
+            Our mission is to transform the way people engage with technology,
+            providing solutions that not only boost productivity but also enrich
+            the human experience. We deliver tailored, impactful solutions that
+            make a significant difference.
           </p>
         </div>
+
+        {/* Right side - Image */}
         <div
-          className="w-1/2 lg:flex lg:justify-center hidden"
-          data-aos="zoom-in"
+          className={`lg:w-1/2 block flex justify-center items-center w-1/3 h-1/4 ${
+            window.innerWidth < 640 ? "hidden" : ""
+          }`}
         >
           <img
+            ref={imageRef}
             src="https://sidlabs-demo.vercel.app/assets/Mission-59e18e6f.png"
             alt="Mission Image"
+            className="w-full h-auto lg:max-w-md shadow-lg rounded-lg transform hover:scale-105 transition-transform duration-500"
           />
         </div>
       </div>
