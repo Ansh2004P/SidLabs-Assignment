@@ -18,9 +18,9 @@ const InsightSection = () => {
 
         {/* Cards Section */}
         <div className="px-4 scroll-container text-white">
-          <div className="w-full scroll-wrapper flex justify-evenly">
+          <div className="w-full scroll-wrapper flex justify-evenly lg:gap-10 gap-4">
             {/* Card 1 */}
-            <div className="border border-neutral-800 duration-300 ease-in-out hover:border-[#0077B4] bg-neutral-800 rounded-[1.4375rem] lg:w-[30%] w-[90%] px-4 py-8 flex flex-col gap-6 hover:scale-95 cursor-pointer">
+            <div className="border border-neutral-800 duration-300 ease-in-out hover:border-[#0077B4] bg-neutral-800 rounded-[1.4375rem] lg:w-[30%] md:w-[45%] sm:w-[60%] w-[90%] px-4 py-8 flex flex-col gap-6 hover:scale-95 cursor-pointer">
               <img
                 src="https://sidlabs-demo.vercel.app/assets/NewsCardOne-4a0a0e4e.png"
                 alt="Industry Update"
@@ -42,7 +42,7 @@ const InsightSection = () => {
             </div>
 
             {/* Card 2 */}
-            <div className="card border border-neutral-800 duration-300 ease-in-out hover:border-[#0077B4] bg-neutral-800 rounded-[1.4375rem] lg:w-[30%] w-[90%] px-4 py-8 flex flex-col gap-6 hover:scale-95 cursor-pointer">
+            <div className="card border border-neutral-800 duration-300 ease-in-out hover:border-[#0077B4] bg-neutral-800 rounded-[1.4375rem] lg:w-[30%] md:w-[45%] sm:w-[60%] w-[90%] px-4 py-8 flex flex-col gap-6 hover:scale-95 cursor-pointer">
               <img
                 src="https://sidlabs-demo.vercel.app/assets/NewsCardTwo-2773e4d5.png"
                 alt="Online Tech Education"
@@ -64,7 +64,7 @@ const InsightSection = () => {
             </div>
 
             {/* Card 3 */}
-            <div className="border border-neutral-800 duration-300 ease-in-out hover:border-[#0077B4] bg-neutral-800 rounded-[1.4375rem] lg:w-[30%] w-[90%] px-4 py-8 flex flex-col gap-6 hover:scale-95 cursor-pointer">
+            <div className="border border-neutral-800 duration-300 ease-in-out hover:border-[#0077B4] bg-neutral-800 rounded-[1.4375rem] lg:w-[30%] md:w-[45%] sm:w-[60%] w-[90%] px-4 py-8 flex flex-col gap-6 hover:scale-95 cursor-pointer">
               <img
                 src="https://sidlabs-demo.vercel.app/assets/NewsCardThree-eb78519e.png"
                 alt="Modern Age Parenting"

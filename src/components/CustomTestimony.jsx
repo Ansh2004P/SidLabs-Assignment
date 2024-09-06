@@ -4,24 +4,21 @@ import propTypes from "prop-types";
 
 const CustomTestimony = ({ name, rating, testimonial }) => {
   return (
-    <div className="border flex-shrink-0 w-[70%] lg:w-[24rem] border-[#0076B4] flex flex-col items-center bg-white gap-4 lg:py-6 lg:px-6 py-3 px-3 rounded-[0.4375rem] testimonial_card">
-      <div className="self-start">
-        <TestimonialTop />
-      </div>
-      <p className="text-[#727272] text-[0.5rem] lg:text-[1rem] font-[400] capitalize">
-        {testimonial}
-      </p>
-      <div className="flex flex-col w-full gap-1">
-        <p className="text-[#252525] text-[0.625rem] lg:text-[1rem] font-[600] capitalize">
-          {name}
-        </p>
-        <div className="flex w-full justify-between font-[400] capitalize text-[0.5rem] lg:text-[1rem]">
-          <p className="text-[#727272]"></p>
-          <span className="flex gap-4 items-center">
+    <div className="flex-shrink-0 w-[70%] lg:w-[24rem] flex flex-col items-center bg-neutral-700 gap-4 lg:py-6 lg:px-6 py-3 px-3 rounded-[0.4375rem] testimonial_card">
+      <div className="flex flex-col w-full gap-2">
+        <div className="flex justify-between w-full">
+          <p className="text-white text-[0.625rem] lg:text-[1.2rem] font-[600] capitalize">
+            {name}
+          </p>
+          <span className="flex gap-3 items-center">
             <Star />
             <span className="text-[#0076B4]">{rating}</span>
           </span>
         </div>
+        <div className="h-[0.125rem] w-full bg-neutral-600"></div>
+        <p className="text-white text-[0.5rem] lg:text-[0.9rem] font-[300] capitalize">
+          {testimonial}
+        </p>
       </div>
     </div>
   );

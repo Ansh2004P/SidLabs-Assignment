@@ -10,7 +10,7 @@ import {
 const Footer = () => {
   return (
     <div
-      className="h-fit lg:pt-20 pt-6 bg-[#F7F9FC] flex justify-center items-end"
+      className="h-fit lg:pt-20 pt-6 bg-[#cdd0d3] flex justify-center items-end"
       data-aos="fade-in"
     >
       <div className="w-[90%] h-fit flex flex-col gap-3 lg:gap-8">
