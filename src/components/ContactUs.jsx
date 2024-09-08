@@ -10,7 +10,7 @@ const ContactUs = () => {
           <div className="w-full max-w-3xl h-[0.125rem] bg-sky-700 mt-4"></div>
         </div>
       </header>
-      <div className="flex w-[80%] justify-between gap-16 pt-16">
+      <div className="flex flex-col lg:flex-row w-[90%] lg:w-[80%] justify-between gap-8 lg:gap-16 pt-16 mx-auto">
         {/* Desktop Image */}
         <div className="hidden lg:block">
           <img
@@ -22,26 +22,26 @@ const ContactUs = () => {
         </div>
 
         {/* Form Section */}
-        <div className="lg:w-[65%] h-fit flex flex-col items-center lg:items-start gap-4">
-          <header className="text-white text-[0.9375rem] lg:text-[2.5rem] font-[400] tracking-[0.01563rem]">
+        <div className="lg:w-[65%] h-fit flex flex-col items-center lg:items-start gap-4 mx-auto">
+          <header className="text-white text-[0.9375rem] lg:text-[2.5rem] font-[400] tracking-[0.01563rem] text-center lg:text-left">
             Stay In Touch With Us
           </header>
 
           {/* Form */}
-          <form className="flex flex-col items-start w-[85%] gap-4 lg:gap-9">
+          <form className="flex flex-col items-center lg:items-start w-full gap-4 lg:gap-9">
             <input
               type="text"
-              className="px-5 placeholder-gray-500  border border-black-1px rounded-lg input_Section text-[0.625rem] lg:text-[1rem] w-full h-[2.10125rem] lg:h-[3.2rem] outline-none"
+              className="px-5 placeholder-gray-500 border border-black-1px rounded-lg input_Section text-[0.625rem] lg:text-[1rem] w-full h-[2.10125rem] lg:h-[3.2rem] outline-none"
               placeholder="Your Name"
             />
             <input
               type="email"
-              className="px-5 placeholder-gray-500  border border-black-1px rounded-lg input_Section text-[0.625rem] lg:text-[1rem] w-full h-[2.10125rem] lg:h-[3.2rem] "
+              className="px-5 placeholder-gray-500 border border-black-1px rounded-lg input_Section text-[0.625rem] lg:text-[1rem] w-full h-[2.10125rem] lg:h-[3.2rem]"
               placeholder="Email"
             />
             <input
               type="text"
-              className=" px-5 placeholder-gray-500 border border-black-1px rounded-lg input_Section text-[0.625rem] lg:text-[1rem] w-full h-[2.10125rem] lg:h-[3.2rem] outline-none"
+              className="px-5 placeholder-gray-500 border border-black-1px rounded-lg input_Section text-[0.625rem] lg:text-[1rem] w-full h-[2.10125rem] lg:h-[3.2rem] outline-none"
               placeholder="Subject"
             />
             <textarea
@@ -49,7 +49,7 @@ const ContactUs = () => {
               className="px-5 placeholder-gray-500 border border-black-1px rounded-lg input_Section text-[0.625rem] lg:text-[1rem] w-full outline-none pt-2"
               placeholder="Type Message Here..."
             ></textarea>
-            <button className="px-28 py-2 mx-[20%] bg-[#0076B4] rounded-[1.875rem] tracking-wider active:bg-blue-900 text-white self-center lg:self-start lg:text-[1rem] text-[0.6875rem] font-[600]">
+            <button className="px-28 py-2 bg-[#0076B4] rounded-[1.875rem] tracking-wider active:bg-blue-900 text-white self-center lg:self-start lg:text-[1rem] text-[0.6875rem] font-[600]">
               Submit
             </button>
           </form>
